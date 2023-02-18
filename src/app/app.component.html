@@ -1,3 +1,26 @@
+<hr />
+<hr />
+<div>
+	<h1>*ngIF</h1>
+	<h3 *ngIf="person.name === 'Juan'; else myBlock">
+		{{ "hola soy " + person.name }}
+	</h3>
+	<ng-template #myBlock>
+		<h3>Bloque else</h3>
+	</ng-template>
+	<label>
+		<input
+			type="text"
+			required
+			#nameInput="ngModel"
+			[(ngModel)]="person.name"
+		/>
+	</label>
+	<span>Valid: {{ nameInput.valid }}</span>
+</div>
+
+<hr />
+<hr />
 <div>
 	<div class="box" (scroll)="onScroll($event)">
 		<p>
