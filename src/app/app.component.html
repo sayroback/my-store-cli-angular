@@ -1,29 +1,71 @@
-<div class="box" (scroll)="onScroll($event)">
-	<p>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, culpa,
-		illum error optio recusandae voluptate doloribus dolor, earum iure eum iste
-		magni reiciendis facere aperiam voluptatem! Libero quae dignissimos magnam!
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, culpa,
-		illum error optio recusandae voluptate doloribus dolor, earum iure eum iste
-		magni reiciendis facere aperiam voluptatem! Libero quae dignissimos magnam!
-	</p>
+<div>
+	<div class="box" (scroll)="onScroll($event)">
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, culpa,
+			illum error optio recusandae voluptate doloribus dolor, earum iure eum
+			iste magni reiciendis facere aperiam voluptatem! Libero quae dignissimos
+			magnam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
+			culpa, illum error optio recusandae voluptate doloribus dolor, earum iure
+			eum iste magni reiciendis facere aperiam voluptatem! Libero quae
+			dignissimos magnam!
+		</p>
+	</div>
+	<h1>{{ scroll }}</h1>
 </div>
-<h1>{{ scroll }}</h1>
+
 <hr />
 <hr />
-<button (click)="increaseAge()">Aumentar edad</button>
-<button [disabled]="btnDisabled">Enviar</button>
-<button (click)="toggleButton()">Enviar</button>
+<div>
+	<button (click)="increaseAge()">Aumentar edad</button>
+	<button [disabled]="btnDisabled">Enviar</button>
+	<button (click)="toggleButton()">Enviar</button>
+</div>
+
+<!-- ngModel -->
 <hr />
 <hr />
-<h1>Hola Mundo</h1>
-<h2>{{ "Hola Mundo ".repeat(5) }}</h2>
-<h3>{{ "hola soy " + person.name }}</h3>
-<input type="text" [value]="person.name" (keyup)="onKeyUp($event)" />
-<h3>{{ "tengo " + person.age }}</h3>
+<div>
+	<h1>ngModel Hola Mundo</h1>
+	<h2>{{ "Hola Mundo ".repeat(5) }}</h2>
+	<h3>{{ "hola soy " + person.name }}</h3>
+	<label>
+		<input
+			type="text"
+			required
+			#nameInput="ngModel"
+			[(ngModel)]="person.name"
+		/>
+	</label>
+	<span>Valid: {{ nameInput.valid }}</span>
+	<h3>{{ "tengo " + person.age }}</h3>
+	<label>
+		<input
+			type="number"
+			min="18"
+			max="26"
+			required
+			#ageInput="ngModel"
+			[(ngModel)]="person.age"
+		/>
+	</label>
+	<span>Valid: {{ ageInput.valid }}</span>
+</div>
+
 <hr />
 <hr />
-<button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [defaultValue]="name" />
-<img [src]="img" alt="imagen" width="100" />
-<progress max="70" [value]="person.age"></progress>
+<div>
+	<h1>Hola Mundo</h1>
+	<h2>{{ "Hola Mundo ".repeat(5) }}</h2>
+	<h3>{{ "hola soy " + person.name }}</h3>
+	<input type="text" [value]="person.name" (keyup)="onKeyUp($event)" />
+	<h3>{{ "tengo " + person.age }}</h3>
+</div>
+
+<hr />
+<hr />
+<div>
+	<button [disabled]="btnDisabled">Enviar</button>
+	<input type="text" [defaultValue]="name" />
+	<img [src]="img" alt="imagen" width="100" />
+	<progress max="70" [value]="person.age"></progress>
+</div>
