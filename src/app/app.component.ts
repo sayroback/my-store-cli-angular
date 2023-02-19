@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './product.model';
 
 @Component({
 	selector: 'app-root',
@@ -18,6 +19,12 @@ export class AppComponent {
 	scroll = 0;
 	names: string[] = ['Nicolas', 'Juan', 'Mr. Robot', 'Batman'];
 	newName = '';
+	products: Product[] = [
+		{ name: 'producto 1', price: 12, image: this.img },
+		{ name: 'producto 2', price: 42, image: this.img },
+		{ name: 'producto 3', price: 72, image: this.img },
+		{ name: 'producto 4', price: 22, image: this.img },
+	];
 
 	toggleButton() {
 		this.btnDisabled = !this.btnDisabled;

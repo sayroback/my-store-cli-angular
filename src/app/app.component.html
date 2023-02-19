@@ -1,4 +1,22 @@
-<h1>*ngFor</h1>
+<h1>*ngFor products</h1>
+<section>
+	<li *ngIf="products.length === 0">No hay productos</li>
+	<div *ngFor="let product of products; index as i">
+		<h3>
+			{{ product.name }}
+		</h3>
+		<i>
+			{{ product.price }}
+		</i>
+		<img [src]="product.image" alt="imagen" width="100" />
+	</div>
+</section>
+<input type="text" required #nameInput="ngModel" [(ngModel)]="newName" />
+<button (click)="addName()">Agregar nombre</button>
+<hr />
+<hr />
+
+<h1>*ngFor person</h1>
 <ul>
 	<li *ngIf="names.length === 0">No hay nombres</li>
 	<li *ngFor="let name of names; index as i">
